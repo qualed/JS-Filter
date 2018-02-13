@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Мои контакты</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+</head>
+<body>
+	<div class="container">
+		<h1 class="center-align">Мои Контакты</h1>
+		<input type="text" id="input" placeholder="Найти имя ...">
+		<ul style="margin-bottom: 50px" class="collection with-header">
+			<li class="collection-header">
+				<h5>А</h5>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Анна</a>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Алиса</a>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Анастасия</a>
+			</li>
+			<li class="collection-header">
+				<h5>Б</h5>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Борис</a>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Богдан</a>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Билл</a>
+			</li>
+			<li class="collection-header">
+				<h5>В</h5>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Василий</a>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Владимир</a>
+			</li>
+			<li class="collection-item name">
+				<a href="#">Виктор</a>
+			</li>
+		</ul>
+	</div>
+
+	<script>
+		let input = document.getElementById('input');
+
+		input.addEventListener('keyup', filter);
+
+		function filter() {
+			let lis = document.querySelectorAll('.name');
+
+			let names = document.getElementsByTagName('a');
+
+			for(let i = 0; i < names.length; i++) {
+				if(names[i].innerHTML.toUpperCase().indexOf(input.value.toUpperCase()) !== 0) {
+					lis[i].style.display = 'none';
+				} else {
+					lis[i].style.display = '';
+				}
+			}
+		}
+	</script>
+</body>
+</html>
